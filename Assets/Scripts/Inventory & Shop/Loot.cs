@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Loot : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Loot : MonoBehaviour
     public SpriteRenderer sr;
     public Animator anim;
     public int quantity;
+    public static Action<ItemSO, int> OnItemLooted;
 
     private void OnValidate()
     {
@@ -20,6 +22,7 @@ public class Loot : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             anim.Play("LootPickUp");
+            OnItemLooted?.Invoke(itemSO, quantity);
             Destroy(gameObject, 0.5f);
         }
     }

@@ -51,12 +51,21 @@ public class Arrow : MonoBehaviour
     private void AttachToTarget(Transform target)
     {
         sr.sprite = buriedSprite;
+        // stop physics motion and make the rigidbody kinematic so it no longer responds to forces
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        transform.SetParent(target);
+        // disable the arrow collider so it doesn't block or interfere with the target's movement
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        // parent to the hit object but preserve world position so it doesn't snap
+        transform.SetParent(target, true);
     }
 }
