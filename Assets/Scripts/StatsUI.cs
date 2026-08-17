@@ -19,12 +19,14 @@ public class StatsUI : MonoBehaviour
             {
                 Time.timeScale = 1;
                 statsCanvas.alpha = 0;
+                statsCanvas.blocksRaycasts = false;
                 statsOpen = false;
             }
             else
             {
                 Time.timeScale = 0;
                 statsCanvas.alpha = 1;
+                statsCanvas.blocksRaycasts = true;
                 statsOpen = true;
             }
     }
@@ -55,7 +57,7 @@ public class StatsUI : MonoBehaviour
 
     public void UpdateSpeed()
     {
-        SetSlotText(1, "Speed: " + StatsManager.Instance.speed);
+        statsSlots[1].GetComponentInChildren<TMP_Text>().text = "Speed: " + StatsManager.Instance.speed;
     }
 
     public void UpdateMaxHealth()
