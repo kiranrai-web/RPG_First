@@ -28,11 +28,7 @@ public class InventoryManager : MonoBehaviour
 
         if (item.isGold)
         {
-            gold += quantity;
-            if (goldText != null)
-                goldText.text = gold.ToString();
-            else
-                Debug.LogWarning("InventoryManager: goldText is not assigned in the Inspector.");
+            AddGold(quantity);
             return;
         }
 
@@ -96,6 +92,18 @@ public class InventoryManager : MonoBehaviour
             slot.itemSO = null;
         }
         slot.UpdateUI();
+    }
+
+    public void AddGold(int amount)
+    {
+        int before = gold;
+        gold += amount;
+        if (goldText != null)
+            goldText.text = gold.ToString();
+        else
+            Debug.LogWarning("InventoryManager: goldText is not assigned in the Inspector.");
+
+        Debug.Log($"InventoryManager.AddGold called on '{gameObject.name}': before={before} amount={amount} after={gold}");
     }
 
     private void DropLoot(ItemSO item, int quantity)

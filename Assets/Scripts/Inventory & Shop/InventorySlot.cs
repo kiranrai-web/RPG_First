@@ -9,24 +9,61 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public Image itemImage;
     public TMP_Text quantityText;
     private InventoryManager inventoryManager;
+    private static ShopManager activeShop;
 
     private void Start()
     {
         inventoryManager = GetComponentInParent<InventoryManager>();
     }
+
+    private void OnEnable()
+    {
+        ShopManager.onShopStateChanged += HandleShopStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        ShopManager.onShopStateChanged -= HandleShopStateChanged;
+    }
+
+    private void HandleShopStateChanged(ShopManager shopManager, bool isOpen)
+    {
+        activeShop = isOpen ? shopManager : null;
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if(quantity > 0)
         {
-            if(eventData.button == PointerEventData.InputButton.Left)
+            Debug.Log($"InventorySlot.OnPointerClick: item={(itemSO!=null?itemSO.itemName:"null")} qty={quantity} activeShop={(activeShop!=null?activeShop.name:"null")} inventoryManager={(inventoryManager!=null?inventoryManager.gameObject.name:"null")} button={eventData.button}");
+            if (eventData.button == PointerEventData.InputButton.Left)
             {
-                if (itemSO.currentHealth > 0 && StatsManager.Instance.currentHealth >= StatsManager.Instance.maxHealth)
-                    return;
-                inventoryManager.UseItem(this);
+                // Primary click: use item when shop is closed, or sell when shop is open
+                if (activeShop != null)
+                {
+                    activeShop.SellItem(itemSO);
+                    quantity--;
+                    UpdateUI();
+                }
+                else
+                {
+                    if (itemSO.currentHealth > 0 && StatsManager.Instance.currentHealth >= StatsManager.Instance.maxHealth)
+                        return;
+                    inventoryManager.UseItem(this);
+                }
             }
-            else if(eventData.button == PointerEventData.InputButton.Right)
+            else if (eventData.button == PointerEventData.InputButton.Right)
             {
-                inventoryManager.DropItem(this);
+                // Secondary click: drop when shop is closed, or sell when shop is open
+                if (activeShop != null)
+                {
+                    activeShop.SellItem(itemSO);
+                    quantity--;
+                    UpdateUI();
+                }
+                else
+                {
+                    inventoryManager.DropItem(this);
+                }
             }
         }
     }
@@ -35,6 +72,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void UpdateUI()
     {
+        if (quantity < 0)
+            itemSO = null;
         if(itemSO != null)
         {
             itemImage.sprite = itemSO.icon;

@@ -30,6 +30,21 @@ public class Loot : MonoBehaviour
 
     private void UpdateAppearance()
     {
+        if (itemSO == null)
+        {
+            Debug.LogWarning("Loot.UpdateAppearance called with null itemSO on " + gameObject.name);
+            if (sr != null)
+                sr.sprite = null;
+            return;
+        }
+
+        if (sr == null)
+        {
+            Debug.LogWarning("Loot prefab missing SpriteRenderer (sr) on " + gameObject.name + ". Assign in the Inspector.");
+            this.name = itemSO.itemName;
+            return;
+        }
+
         sr.sprite = itemSO.icon;
         this.name = itemSO.itemName;
     }

@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_Blue_Pressed_1
+      name: Button_Blue_Pressed_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 12
-        width: 52
-        height: 46
+        x: 7
+        y: 13
+        width: 50
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 5, w: 5}
+      border: {x: 5, y: 5, z: 5, w: 5}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: df9091b385e3e3940800000000000000
-      internalID: 5277724361994340861
+      spriteID: a8ea37e23d5637f468a67cef0a77c672
+      internalID: 1135448319
       vertices: []
       indices: 
       edges: []
@@ -146,9 +146,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Button_Blue_Pressed_1: 5277724361994340861
+      Button_Blue_Pressed_0: 1135448319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
