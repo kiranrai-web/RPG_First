@@ -63183,7 +63183,7 @@ Tilemap:
       - {fileID: 740179158, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: -872229142, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: -156375586, guid: c322169920ded9244b64fb2683d103c4, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -17, y: -8, z: 0}
@@ -63744,7 +63744,7 @@ Tilemap:
       - {fileID: -105765509, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: 828864678, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: -536248492, guid: c322169920ded9244b64fb2683d103c4, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -18, y: 15, z: 0}
@@ -63843,7 +63843,7 @@ Tilemap:
       - {fileID: -1365159003, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: 341978719, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: -1482676932, guid: c322169920ded9244b64fb2683d103c4, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: 16, z: 0}
@@ -63887,7 +63887,7 @@ Tilemap:
       - {fileID: -1365159003, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: 341978719, guid: c322169920ded9244b64fb2683d103c4, type: 3}
       - {fileID: -1482676932, guid: c322169920ded9244b64fb2683d103c4, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: 17, z: 0}
@@ -71760,6 +71760,7 @@ GameObject:
   - component: {fileID: 1970273998}
   - component: {fileID: 1970274000}
   - component: {fileID: 1970274001}
+  - component: {fileID: 1970274002}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -71827,7 +71828,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970273996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96b0b89c891a8654ba7760c0fd6f0ab9, type: 3}
   m_Name: 
@@ -71866,6 +71867,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1970274002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970273996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a408ba4741b32a49af3b1813e0e1173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Wandar
+  wanderWidth: 10
+  wanderHeight: 4
+  startingPosition: {x: 9, y: 1}
+  speed: 2
+  target: {x: 0, y: 0}
+  pauseDuration: 1
 --- !u!1 &1994867328
 GameObject:
   m_ObjectHideFlags: 0
