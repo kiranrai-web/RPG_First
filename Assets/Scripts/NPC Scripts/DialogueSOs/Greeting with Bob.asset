@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38050e3ffd4359e459ea836f45167449, type: 3}
+  m_Name: Greeting with Bob
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  lines:
+  - speaker: {fileID: 11400000, guid: 063b6675f50ffff47ae1cdf9e22782fe, type: 2}
+    text: Hello! Traveller
+  - speaker: {fileID: 11400000, guid: df6048066712b2b48a03e4718b4a7802, type: 2}
+    text: Hello! Bpb
+  - speaker: {fileID: 11400000, guid: 063b6675f50ffff47ae1cdf9e22782fe, type: 2}
+    text: Where are you heading
